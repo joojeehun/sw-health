@@ -27,4 +27,5 @@
 영양소 정보 검색
 
 ## 문서
+[요구사항 정의서] https://github.com/joojeehun/sw-health/blob/main/docs/requirements.md
 
