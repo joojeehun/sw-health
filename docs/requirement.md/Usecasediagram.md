@@ -1,23 +1,44 @@
-usecaseDiagram
-actor 사용자 as User
-actor 관리자 as Admin
+```mermaid
+flowchart LR
 
-User --> (생활 패턴 입력하기)
-User --> (생활 패턴 분석하기)
-User --> (알림 받기)
-User --> (이전 생활 패턴 불러오기)
-User --> (인터페이스 설정하기)
+User((사용자))
+Admin((관리자))
 
-Admin --> (전체 알림 현황 조회하기)
+A([생활 패턴 입력하기])
+B([생활 패턴 저장하기])
 
-(생활 패턴 입력하기) ..> (생활 패턴 저장하기) : include
+C([생활 패턴 분석하기])
+D([피드백 제공하기])
 
-(생활 패턴 분석하기) ..> (피드백 제공하기) : include
+E([알림 받기])
+F([식사 시간 알림])
+G([수면 시간 알림])
 
-(알림 받기) ..> (식사 시간 알림) : include
-(알림 받기) ..> (수면 시간 알림) : include
+H([이전 생활 패턴 불러오기])
+I([이전 생활 패턴 저장하기])
 
-(이전 생활 패턴 불러오기) ..> (이전 생활 패턴 저장하기) : extend
+J([인터페이스 설정하기])
+K([글씨 크기 조정하기])
+L([UI 조정하기])
 
-(인터페이스 설정하기) ..> (글씨 크기 조정하기) : include
-(인터페이스 설정하기) ..> (UI 조정하기) : include
+M([전체 알림 현황 조회하기])
+
+User --> A
+User --> C
+User --> E
+User --> H
+User --> J
+
+Admin --> M
+
+A -. include .-> B
+C -. include .-> D
+
+E -. include .-> F
+E -. include .-> G
+
+H -. extend .-> I
+
+J -. include .-> K
+J -. include .-> L
+```
