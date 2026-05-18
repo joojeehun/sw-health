@@ -1,5 +1,6 @@
 ```mermaid
 classDiagram
+direction LR
 
 class User {
   - userId
@@ -72,24 +73,28 @@ class AppSetting {
   + toggleSimpleMode()
 }
 
+%% 사용자 입력 관계
 User --> HealthProfile : 입력
-User --> LifestylePattern : 생활 패턴 입력
-User --> AppSetting : 설정 변경
+User --> LifestylePattern : 기록
+User --> AppSetting : 설정
 
-HealthProfile *-- LifestylePattern : 건강 목표 기반 관리
-LifestylePattern *-- MealPattern : 식사 패턴 포함
-LifestylePattern *-- SleepPattern : 수면 패턴 포함
+%% 생활 패턴 중심 관계
+LifestylePattern *-- MealPattern : 포함
+LifestylePattern *-- SleepPattern : 포함
 
-LifestylePattern --> Feedback : 분석 결과 생성
-HealthProfile --> Feedback : 목표 반영
+%% 분석 및 피드백 관계
+HealthProfile --> LifestylePattern : 목표 반영
+LifestylePattern --> Feedback : 분석 결과
 
-Feedback --> User : 피드백 제공
-Feedback o-- Notification : 알림으로 전달 가능
-
+%% 알림 관계
+Feedback o-- Notification : 알림 생성
 Notification --> User : 알림 전송
-Notification --> MealPattern : 식사 시간 알림
-Notification --> SleepPattern : 수면 시간 알림
 
-AppSetting ..> Notification : 알림 표시 방식 적용
-AppSetting ..> Feedback : 피드백 화면 설정 적용
+%% 알림 세부 관계
+Notification --> MealPattern : 식사 알림
+Notification --> SleepPattern : 수면 알림
+
+%% 설정 적용 관계
+AppSetting ..> Notification : UI 적용
+AppSetting ..> Feedback : 화면 설정
 ```
