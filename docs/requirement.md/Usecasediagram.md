@@ -39,14 +39,14 @@ Admin --> M
 Admin --> N
 Admin --> O
 
-A -.->|"<<include>>"| B
-C -.->|"<<include>>"| D
+A -. include .-> B
+C -. include .-> D
 
-E -.->|"<<include>>"| F
-E -.->|"<<include>>"| G
+E -. include .-> F
+E -. include .-> G
 
-I -.->|"<<extend>>"| H
+I -. extend .-> H
 
-J -.->|"<<include>>"| K
-J -.->|"<<include>>"| L
+J -. include .-> K
+J -. include .-> L
 ```
