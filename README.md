@@ -28,6 +28,6 @@
 
 ## 문서
 [요구사항 정의서] https://github.com/joojeehun/sw-health/blob/main/docs/requirements.md
+[보고서 목록] https://github.com/joojeehun/sw-health/milestones
 [WBS 및 일정] https://github.com/joojeehun/sw-health/blob/main/docs/wbs.md
 [회의록 목록] https://github.com/joojeehun/sw-health/blob/main/docs/meetings
-
